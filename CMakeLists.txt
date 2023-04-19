@@ -9,6 +9,8 @@ project(mailWriter
 )
 add_executable(mailWriter 
 	src/main.cc
+	src/mail.h
+	src/mail.cc
 )
 
 find_package( CURL REQUIRED )
