@@ -1,0 +1,1 @@
+gcc main.cpp -lstdc++ `pkg-config glibmm-2.68 --cflags --libs` `pkg-config gtkmm-4.0 --cflags --libs`

@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkWindow" id="Account_Creation_Window">
+    <property name="child">
+      <object class="GtkFixed" id="Account_Creation_Display">
+        <child>
+          <object class="GtkLabel" id="Account_Creation_Title">
+            <layout>
+              <property name="transform">translate(300, -20)</property>
+            </layout>
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
+            <property name="label" translatable="1">Create Account</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 12"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Username_Create_Entry">
+            <layout>
+              <property name="transform">translate(6, 40)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Password_Create_Entry">
+            <layout>
+              <property name="transform">translate(6, 80)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Password_Confirm_Entry">
+            <layout>
+              <property name="transform">translate(6, 120)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Create_User_Label">
+            <layout>
+              <property name="transform">translate(236, 47)</property>
+            </layout>
+            <property name="label" translatable="1">Username</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Create_Password_Label">
+            <layout>
+              <property name="transform">translate(236, 87)</property>
+            </layout>
+            <property name="label" translatable="1">Password</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Confirm_Password_Label">
+            <layout>
+              <property name="transform">translate(236, 127)</property>
+            </layout>
+            <property name="label" translatable="1">Confirm Password</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Email_Entry">
+            <layout>
+              <property name="transform">translate(6, 160)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Email_Address_Label">
+            <layout>
+              <property name="transform">translate(236, 167)</property>
+            </layout>
+            <property name="label" translatable="1">Email Address</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Email_Confirm_Entry">
+            <layout>
+              <property name="transform">translate(6, 200)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Email_Confirm_Label">
+            <layout>
+              <property name="transform">translate(236, 207)</property>
+            </layout>
+            <property name="label" translatable="1">Confirm Email Address</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Create_Confirm_Button">
+            <layout>
+              <property name="transform">translate(80, 240)</property>
+            </layout>
+            <property name="label" translatable="1">Create</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Create_Confirm_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkListStore" id="Email_ComboBox">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Inbox</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Drafts</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Sent</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Deleted</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Spam</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Archived</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="Key_Management_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="Key_Management_Display">
+        <child>
+          <object class="GtkLabel" id="Key_Management_Title">
+            <layout>
+              <property name="transform">translate(280, -20)</property>
+            </layout>
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
+            <property name="label" translatable="1">Key Management</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 12"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Generate_Key_Button">
+            <layout>
+              <property name="transform">translate(50, 150)</property>
+            </layout>
+            <property name="label" translatable="1">Generate GPG Key</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Generate_Key_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Export_Key_Button">
+            <layout>
+              <property name="transform">translate(250, 50)</property>
+            </layout>
+            <property name="label" translatable="1">Export GPG Key</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Export_Key_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Home_Button">
+            <layout>
+              <property name="transform">translate(375, 205)</property>
+            </layout>
+            <property name="label">gtk-home</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <property name="use-stock">True</property>
+            <signal name="clicked" handler="on_Home_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Save_Key_Button">
+            <layout>
+              <property name="transform">translate(50, 100)</property>
+            </layout>
+            <property name="label" translatable="1">Save GPG Key</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Save_Key_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="View_Key_Button">
+            <layout>
+              <property name="transform">translate(250, 100)</property>
+            </layout>
+            <property name="label" translatable="1">View GPG Key</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_View_Key_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="DeleteKey_Button">
+            <layout>
+              <property name="transform">translate(50, 50)</property>
+            </layout>
+            <property name="label" translatable="1">Delete GPG Key</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_DeleteKey_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkWindow" id="LogIn_Window">
+    <property name="child">
+      <object class="GtkFixed" id="LogIn_Display">
+        <child>
+          <object class="GtkButton" id="LogInButton">
+            <layout>
+              <property name="transform">translate(303, 270)</property>
+            </layout>
+            <property name="label" translatable="1">Log In</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_LogInButton_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Username_Entry">
+            <layout>
+              <property name="transform">translate(150, 232)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Username_Label">
+            <layout>
+              <property name="transform">translate(76, 198)</property>
+            </layout>
+            <property name="label" translatable="1">Username</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Password_Label">
+            <layout>
+              <property name="transform">translate(76, 238)</property>
+            </layout>
+            <property name="label" translatable="1">Password</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Email_Client_Title">
+            <layout>
+              <property name="transform">translate(115, 95)</property>
+            </layout>
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
+            <property name="label" translatable="1">Mail Writer</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 36"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Create_Account_Button">
+            <layout>
+              <property name="transform">translate(150, 270)</property>
+            </layout>
+            <property name="label" translatable="1">Create Account</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Create_Account_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Placeholder_Invisible_Label">
+            <layout>
+              <property name="transform">translate(416, 297)</property>
+            </layout>
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Password_Entry">
+            <layout>
+              <property name="transform">translate(150, 190)</property>
+            </layout>
+            <property name="width-request">227</property>
+            <property name="height-request">27</property>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkWindow" id="New_Email_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="NewEmail_Display">
+        <child>
+          <object class="GtkEntry" id="Recipient_Entry">
+            <layout>
+              <property name="transform">translate(50, 25)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="placeholder-text" translatable="1">Recipient(s)</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="CC_Entry">
+            <layout>
+              <property name="transform">translate(50, 60)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="placeholder-text" translatable="1">Recipients(s)</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="To_Label">
+            <layout>
+              <property name="transform">translate(20, 35)</property>
+            </layout>
+            <property name="label" translatable="1">To:</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="CC_Label">
+            <layout>
+              <property name="transform">translate(20, 70)</property>
+            </layout>
+            <property name="label" translatable="1">CC:</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="Subject_Entry">
+            <layout>
+              <property name="transform">translate(50, 95)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="placeholder-text" translatable="1">Add a Subject</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="EmailBody_Entry">
+            <layout>
+              <property name="transform">translate(50, 135)</property>
+            </layout>
+            <property name="width-request">375</property>
+            <property name="height-request">115</property>
+            <property name="focusable">1</property>
+            <property name="placeholder-text" translatable="1">Start Typing...</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Send_button">
+            <layout>
+              <property name="transform">translate(435, 215)</property>
+            </layout>
+            <property name="label" translatable="1">Send</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Send_button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="SaveDraftButton">
+            <layout>
+              <property name="transform">translate(435, 175)</property>
+            </layout>
+            <property name="label" translatable="1">Save</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_SaveDraftButton_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="NewMail_Exit">
+            <layout>
+              <property name="transform">translate(500, 10)</property>
+            </layout>
+            <property name="stock">gtk-cancel</property>
+            <signal name="button-press-event" handler="on_NewMail_Exit_button_press_event" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFontButton" id="Font_Select_Button">
+            <layout>
+              <property name="transform">translate(280, 95)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <property name="font">Sans 12</property>
+            <property name="language">en-us</property>
+            <property name="preview-text"></property>
+            <signal name="clicked" handler="on_Font_Select_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">1000</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">10</property>
+  </object>
+  <object class="GtkListStore" id="encryptionlistLocalStorage">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Algorithm 1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Algorithm 2</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="LocalStorage_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="LocalStorage_Display">
+        <child>
+          <object class="GtkLabel" id="LocalSorage_Title">
+            <layout>
+              <property name="transform">translate(20, 20)</property>
+            </layout>
+            <property name="label" translatable="1">Local Storage</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 16"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="EncryptionCheckBox">
+            <layout>
+              <property name="transform">translate(25, 200)</property>
+            </layout>
+            <property name="label" translatable="1">Encrypt</property>
+            <property name="focusable">1</property>
+            <signal name="toggled" handler="on_EncryptionCheckBox_toggled" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="EncryptionComboBox">
+            <layout>
+              <property name="transform">translate(115, 190)</property>
+            </layout>
+            <property name="model">encryptionlistLocalStorage</property>
+            <property name="has-entry">1</property>
+            <property name="entry-text-column">0</property>
+            <property name="child">
+              <object class="GtkEntry">
+                <property name="visible">0</property>
+                <property name="placeholder-text" translatable="1">Algorithm....</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <layout>
+              <property name="transform">translate(20, 60)</property>
+            </layout>
+            <property name="width-request">300</property>
+            <property name="height-request">100</property>
+            <property name="focusable">1</property>
+            <property name="shadow-type">in</property>
+            <property name="child">
+              <object class="GtkTextView" id="LocalStorageTextDisplayWidget">
+                <property name="focusable">1</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="ViewLocalEmailButton">
+            <layout>
+              <property name="transform">translate(350, 60)</property>
+            </layout>
+            <property name="label" translatable="1">View</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="DeleteLocal_Button">
+            <layout>
+              <property name="transform">translate(350, 100)</property>
+            </layout>
+            <property name="label" translatable="1">Delete</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_DeleteLocal_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="LocalExitButtonIcon">
+            <layout>
+              <property name="transform">translate(410, 10)</property>
+            </layout>
+            <property name="stock">gtk-cancel</property>
+            <signal name="button-press-event" handler="on_LocalExitButtonIcon_button_press_event" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Inbox</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Sent</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Drafts</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Deleted</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Archived</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">All Mail</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Junk Mail</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="Main_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="Main_Screen_Display">
+        <child>
+          <object class="GtkComboBox" id="Email_CComboBox">
+            <layout>
+              <property name="transform">translate(20, 20)</property>
+            </layout>
+            <property name="width-request">150</property>
+            <property name="height-request">30</property>
+            <property name="model">liststore1</property>
+            <property name="has-entry">1</property>
+            <property name="entry-text-column">0</property>
+            <property name="id-column">0</property>
+            <signal name="changed" handler="on_Email_CComboBox_changed" swapped="no"/>
+            <property name="child">
+              <object class="GtkEntry" id="Entry1">
+                <property name="visible">0</property>
+                <property name="placeholder-text" translatable="1">Mailboxes</property>
+                <signal name="changed" handler="on_Entry1_changed" swapped="no"/>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="Profile_Icon">
+            <layout>
+              <property name="transform">translate(680, 5)</property>
+            </layout>
+            <property name="stock">gtk-orientation-portrait</property>
+            <property name="icon_size">5</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <layout>
+              <property name="transform">translate(20, 65)</property>
+            </layout>
+            <property name="width-request">500</property>
+            <property name="height-request">175</property>
+            <property name="focusable">1</property>
+            <property name="shadow-type">in</property>
+            <property name="child">
+              <object class="GtkTextView" id="Email_List_TextVIew">
+                <property name="focusable">1</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="SearchBar_Label">
+            <layout>
+              <property name="transform">translate(238, 25)</property>
+            </layout>
+            <property name="label" translatable="1">Search: </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="search_entry">
+            <layout>
+              <property name="transform">translate(294, 20)</property>
+            </layout>
+            <property name="focusable">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="NewEmail_button">
+            <layout>
+              <property name="transform">translate(530, 75)</property>
+            </layout>
+            <property name="label" translatable="1">New Email</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_NewEmail_button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="ContactList_Button">
+            <layout>
+              <property name="transform">translate(530, 125)</property>
+            </layout>
+            <property name="label" translatable="1">Contacts</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_ContactList_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="EncryptionSettings_button">
+            <layout>
+              <property name="transform">translate(530, 175)</property>
+            </layout>
+            <property name="label" translatable="1">Settings</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_EncryptionSettings_button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="LogOut_Button">
+            <layout>
+              <property name="transform">translate(590, 10)</property>
+            </layout>
+            <property name="label" translatable="1">Log Out</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_LogOut_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="StoreLocallyButton">
+            <layout>
+              <property name="transform">translate(530, 225)</property>
+            </layout>
+            <property name="label" translatable="1">Store Locally</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_StoreLocallyButton_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="SearchEnterIcon">
+            <layout>
+              <property name="transform">translate(470, 20)</property>
+            </layout>
+            <property name="width-request">30</property>
+            <property name="height-request">30</property>
+            <property name="stock">gtk-find</property>
+            <signal name="button-press-event" handler="on_SearchEnterIcon_button_press_event" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkListStore" id="liststore2">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">test email 1
+subject: waffles</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore3">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">IMAP</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">ESMTP</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">POP</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="Settings_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="Settings_Display">
+        <child>
+          <object class="GtkLabel" id="Settings_Title">
+            <layout>
+              <property name="transform">translate(20, 15)</property>
+            </layout>
+            <property name="label" translatable="1">Settings</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 16"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkVolumeButton" id="Volume_Control">
+            <layout>
+              <property name="transform">translate(20, 50)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="focus-on-click">0</property>
+            <property name="receives-default">1</property>
+            <property name="relief">none</property>
+            <property name="orientation">vertical</property>
+            <property name="size">dnd</property>
+            <property name="icons">audio-volume-muted-symbolic
+audio-volume-high-symbolic
+audio-volume-low-symbolic
+audio-volume-medium-symbolic</property>
+            <child internal-child="plus_button">
+              <object class="GtkButton">
+                <property name="visible">0</property>
+                <property name="focusable">1</property>
+                <property name="receives-default">1</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="relief">none</property>
+              </object>
+            </child>
+            <child internal-child="minus_button">
+              <object class="GtkButton">
+                <property name="visible">0</property>
+                <property name="focusable">1</property>
+                <property name="receives-default">1</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="relief">none</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="Encryption Algorithm">
+            <layout>
+              <property name="transform">translate(20, 100)</property>
+            </layout>
+            <property name="model">liststore3</property>
+            <property name="has-entry">1</property>
+            <property name="entry-text-column">0</property>
+            <property name="child">
+              <object class="GtkEntry" id="TechSelector_ComboBox">
+                <property name="visible">0</property>
+                <property name="placeholder-text" translatable="1">IMAP/POP/ESMTP</property>
+                <signal name="changed" handler="on_TechSelector_ComboBox_changed" swapped="no"/>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Update_Email_Button">
+            <layout>
+              <property name="transform">translate(20, 150)</property>
+            </layout>
+            <property name="label" translatable="1">Update Email</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Update_Email_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Update_Pass_Button">
+            <layout>
+              <property name="transform">translate(160, 150)</property>
+            </layout>
+            <property name="label" translatable="1">Update Password</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Update_Pass_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="Settings_Exit">
+            <layout>
+              <property name="transform">translate(415, 10)</property>
+            </layout>
+            <property name="stock">gtk-cancel</property>
+            <signal name="button-press-event" handler="on_Settings_Exit_button_press_event" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkListStore" id="liststore4">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Contact 1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Contact 2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Contact 3
+</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="ContactList_Screen">
+    <property name="child">
+      <object class="GtkFixed" id="Contact_display">
+        <child>
+          <object class="GtkLabel" id="Contact_TItle">
+            <layout>
+              <property name="transform">translate(20, 20)</property>
+            </layout>
+            <property name="label" translatable="1">Contacts</property>
+            <attributes>
+              <attribute name="font-desc" value="System-ui Bold Italic 24"></attribute>
+              <attribute name="style" value="italic"></attribute>
+              <attribute name="weight" value="ultraheavy"></attribute>
+              <attribute name="foreground" value="#91914141acac"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="Contacts_Exit">
+            <layout>
+              <property name="transform">translate(415, 10)</property>
+            </layout>
+            <property name="stock">gtk-cancel</property>
+            <signal name="button-press-event" handler="on_Contacts_Exit_button_press_event" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="Remove_Contact_Button">
+            <layout>
+              <property name="transform">translate(275, 120)</property>
+            </layout>
+            <property name="label" translatable="1">Remove</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_Remove_Contact_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="BlockContact_Button">
+            <layout>
+              <property name="transform">translate(275, 170)</property>
+            </layout>
+            <property name="label" translatable="1">Block</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_BlockContact_Button_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="AddContact_EntryBox">
+            <layout>
+              <property name="transform">translate(20, 70)</property>
+            </layout>
+            <property name="focusable">1</property>
+            <property name="placeholder-text" translatable="1">Add New Contact</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="ViewKeysButton">
+            <layout>
+              <property name="transform">translate(275, 70)</property>
+            </layout>
+            <property name="label" translatable="1">View Shared Keys</property>
+            <property name="focusable">1</property>
+            <property name="receives-default">1</property>
+            <signal name="clicked" handler="on_ViewKeysButton_clicked" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="ContactComboBox">
+            <layout>
+              <property name="transform">translate(20, 120)</property>
+            </layout>
+            <property name="model">liststore4</property>
+            <property name="has-entry">1</property>
+            <property name="entry-text-column">0</property>
+            <property name="id-column">0</property>
+            <property name="child">
+              <object class="GtkEntry" id="contactcombo_list">
+                <property name="visible">0</property>
+                <property name="placeholder-text" translatable="1">Contacts...</property>
+                <signal name="changed" handler="on_contactcombo_list_changed" swapped="no"/>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>
